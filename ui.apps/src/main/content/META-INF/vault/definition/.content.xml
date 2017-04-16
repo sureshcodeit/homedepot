@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:vlt="http://www.day.com/jcr/vault/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:description="Homedepot Web Project - Reactor Project Package"
+    jcr:primaryType="vlt:PackageDefinition"
+    sling:resourceType="cq/packaging/components/pack/definition"
+    buildCount="1"
+    cqVersion="6.2"
+    group="content-package"
+    name="homedepot-web"
+    path="/etc/packages/content-package/homedepot-web-0.0.1-SNAPSHOT"
+    version="0.0.1-SNAPSHOT">
+    <filter jcr:primaryType="nt:unstructured">
+        <f0
+            jcr:primaryType="nt:unstructured"
+            mode="replace"
+            root="/apps/homedepot"
+            rules="[]"/>
+
+        <f1
+            jcr:primaryType="nt:unstructured"
+            mode="replace"
+            root="/apps/sling/servlet/errorhandler"
+            rules="[]"/>
+
+
+        <f2
+            jcr:primaryType="nt:unstructured"
+            mode="merge"
+            root="/conf/homedepot"
+            rules="[]"/>
+
+
+        <f3
+            jcr:primaryType="nt:unstructured"
+            mode="replace"
+            root="/etc/clientlibs/homedepot"
+            rules="[]"/>
+
+
+        <f4
+            jcr:primaryType="nt:unstructured"
+            mode="replace"
+            root="/etc/designs/homedepot"
+
+            rules="[include:/etc/designs/homedepot/jcr:content,include:/etc/designs/homedepot/jcr:content/clientlibs,include:/etc/designs/homedepot/jcr:content/clientlibs/.*]"/>
+
+    </filter>
+</jcr:root>

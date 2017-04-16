@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Edit RTE Editor"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <tab1
+                jcr:primaryType="cq:Panel"
+                title="Tab 1">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <statictext
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Enter Description"
+                        fieldLabel="Enter Text"
+                        name="./text"
+                        removeSingleParagraphContainer="{Boolean}false"
+                        xtype="richtext">
+                        <rtePlugins jcr:primaryType="nt:unstructured">
+                            <misctools
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <edit
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <findreplace
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <experience-aem
+                                jcr:primaryType="nt:unstructured"
+                                features="touchuiinsertimage"/>
+                            <spellcheck
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <subsuperscript
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <undo
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <table
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <list
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <paraformat
+                                jcr:primaryType="nt:unstructured"
+                                features="*">
+                                <formats jcr:primaryType="nt:unstructured">
+                                    <p
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Paragraph"
+                                        tag="p"/>
+                                    <h1
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 1"
+                                        tag="h1"/>
+                                    <h2
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 2"
+                                        tag="h2"/>
+                                    <h3
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 3"
+                                        tag="h3"/>
+                                    <h4
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 4"
+                                        tag="h4"/>
+                                    <h5
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 5"
+                                        tag="h5"/>
+                                    <h6
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 6"
+                                        tag="h6"/>
+                                </formats>
+                            </paraformat>
+                            <styles
+                                jcr:primaryType="nt:unstructured"
+                                features="*">
+                                <styles jcr:primaryType="cq:WidgetCollection">
+                                    <normal
+                                        jcr:primaryType="nt:unstructured"
+                                        cssName="normal"
+                                        text="Text Color - Normal"/>
+                                    <grey1
+                                        jcr:primaryType="nt:unstructured"
+                                        cssName="grey1"
+                                        text="Text Color - Grey1"/>
+                                    <grey2
+                                        jcr:primaryType="nt:unstructured"
+                                        cssName="grey2"
+                                        text="Text Color - Grey2"/>
+                                </styles>
+                            </styles>
+                        </rtePlugins>
+                    </statictext>
+                </items>
+            </tab1>
+        </items>
+    </items>
+</jcr:root>

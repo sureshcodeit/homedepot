@@ -1,0 +1,78 @@
+<p data-sly-test="${wcmmode.edit && !properties.text}" data-emptytext="[Modal Popup : Please enter the appropriate values]" class="cq-placeholder"></p>
+<div id="${properties.id}"></div>
+<script type="text/jsx">
+      /** @jsx React.DOM */
+      var ModalTrigger = React.createClass({
+      	handleClick: function(e) {
+            $(this.refs.payload.getDOMNode()).modal(); 
+        }
+
+        , render: function() {
+            return <div onClick={this.handleClick}>
+                     {this.props.trigger}
+                     <Modal ref="payload"
+                       header={this.props.header}
+                       body={this.props.body}
+                       footer={this.props.footer}
+                       />
+                   </div> 
+         }
+      })
+
+
+      var Modal = React.createClass({	
+		componentDidMount: function() {
+            $(this.getDOMNode()).modal({
+                	background: true
+                    , keyboard: true
+                    , show: false
+            })
+        }
+
+        , componentWillUnmount: function(){
+            $(this.getDOMNode()).off('hidden'); 
+		}
+
+        , handleClick: function(e) {
+            e.stopPropagation(); 
+		}
+
+        , render: function() {       
+            return (<div onClick={this.handleClick} className="modal fade" role="dialog" aria-hidden="true">
+                      <div className="modal-dialog">
+                        <div className="modal-content">
+                          <div className="modal-header">{this.props.header}</div>
+                          <div className="modal-body">{this.props.body}</div>
+                          <div className="modal-footer">{this.props.footer}</div>
+                        </div>
+                      </div>
+                    </div>) }
+        });
+
+
+      var Btn = React.createClass({
+        render: function() {
+          var aProps = {className: "btn btn-default", href:"#"}
+
+          for (k in this.props) {
+            if (k != "className") aProps[k] = this.props[k]
+            else aProps[k] =  (aProps[k] + " " + this.props[k])
+          }
+
+          return React.DOM.a(aProps) 
+       }
+      })
+
+      var GenericModal = React.createClass({
+        render: function() {
+          return <ModalTrigger
+          trigger={<a href="#">${properties.title @ context='scriptString'}</a>}
+            header={<h3>${properties.title @ context='scriptString'}</h3>}
+            footer={<Btn data-dismiss="modal">Close</Btn>}
+            body={<p> ${properties.text @ context='html'} </p>}
+            /> 
+        }
+      })				  
+
+      React.renderComponent(<GenericModal/>, document.getElementById('${properties.id @ context='scriptString'}'))
+    </script>

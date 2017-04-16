@@ -1,0 +1,62 @@
+<div data-sly-use.currencytypes="com.homedepot.components.models.CurrencyConverterModel"></div>
+<p data-sly-test.empty="${wcmmode.edit && currencytypes.isCurrencyTypesEmpty} " data-emptytext="[Currency Converter: Please chose at least two currency types]" class="cq-placeholder" />
+
+<div class="row" data-ng-app="CurrencyConveter">
+    <div class="col-sm-5" data-ng-controller="ConvertCtrl">        
+        <form action=""
+            class="form-contact-us form-validator" data-disable="false"
+            data-spam-check-enable="" data-spam-check-submissiontime="5"
+            novalidate="true">
+
+            <div class="js-biz-options-container">
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <label class="control-label" for="topic">${'homedepot.currency.converter.field1label' @ i18n}</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group">			
+                        <input type="text" name="form.fromCurrency" class="form-control"
+                        id="from_currency" type="number" placeholder="Enter value" ng-model="fromValue" data-ng-change="forExConvert()">                    
+                </div>
+                <div class="col-md-6 form-group">
+                     <select id="fromcurrencylist" style="display: none;"
+                            class="form-control" data-sly-list="${currencytypes.currencyTypesList}">
+                            <option value="${item}">${item}</option>
+                     </select>                     
+					 <select ng-model="fromCurrency" class="form-control" required data-ng-change="forExConvert()"
+                            ng-options="currency.type for currency in currencies">   							                                                              
+                     </select>
+                </div>
+            </div>        	 
+            <div class="js-biz-options-container">
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <label class="control-label" for="topic">${'homedepot.currency.converter.field2label' @ i18n}</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 form-group">			
+                        <input type="text" name="form.convertedCurrency" class="form-control"
+                        id="coverted_currency" data-ng-model="toValue" data-ng-change="forExConvert()">                    
+                </div>
+                <div class="col-md-6 form-group">                     
+                     <select ng-model="toCurrency" class="form-control" required data-ng-change="forExConvert()"
+                            ng-options="currency.type for currency in currencies">   							                                                              
+                     </select>
+                </div>
+            </div>
+            <div class="row">               
+                <div class="col-md-6 form-group">
+                    <div class="inner-anchor">                        
+                         <div data-sly-resource="${ @path='modalpopup', resourceType='homedepot/components/content/modalpopup'}" data-sly-unwrap='${wcmmode.preview || wcmmode.disabled}'>   
+                    </div>
+                </div>
+            </div>
+        </form>
+	</div>
+</div>

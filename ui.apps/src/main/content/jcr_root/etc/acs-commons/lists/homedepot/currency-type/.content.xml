@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/etc/designs/acs-commons"
+        cq:lastModified="{Date}2017-04-17T03:52:07.242+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/apps/acs-commons/templates/utilities/genericlist"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Currency type"
+        sling:resourceType="acs-commons/components/utilities/genericlist">
+        <list
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <item
+                jcr:created="{Date}2017-03-30T00:35:06.053+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2017-03-30T00:35:19.875+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="CAD"
+                sling:resourceType="acs-commons/components/utilities/genericlist/item"
+                value="CAD"/>
+            <item_2108186103
+                jcr:created="{Date}2017-03-30T00:35:22.948+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2017-03-30T00:35:54.030+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="USD"
+                sling:resourceType="acs-commons/components/utilities/genericlist/item"
+                value="USD"/>
+            <item_1625879457
+                jcr:created="{Date}2017-03-30T00:35:57.126+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2017-03-30T00:36:05.311+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="EUR"
+                sling:resourceType="acs-commons/components/utilities/genericlist/item"
+                value="EUR"/>
+            <item_815614039
+                jcr:created="{Date}2017-04-17T03:51:57.357+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2017-04-17T03:52:07.234+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="CHF"
+                sling:resourceType="acs-commons/components/utilities/genericlist/item"
+                value="CHF"/>
+        </list>
+    </jcr:content>
+</jcr:root>

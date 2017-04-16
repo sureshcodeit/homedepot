@@ -1,0 +1,351 @@
+<div class="parsys par-frag">
+	<div class="parbase headercontainer section">
+		<div class="header-container">
+			<div class="header-wrapper">
+				<div class="container-fluid container-fluid--main-header">
+					<header class="main-nav-header">
+						<div class="row top-hat-row hidden-xs hidden-sm">
+							<div class="col-md-12 top-hat-row__main">
+								<div class="menulist parbase section">
+									<div class="link-list-container">
+										<ul class="link-list ">
+											<li class="link "><a href="#"
+												target="_self"> Pro Services </a></li>
+											<li class="link "><a
+												href="#" target="_self">
+													Tools &amp; Vehicle Rental </a></li>
+											<li class="link "><a href="#"
+												target="_self"> Credit Services </a></li>
+											<li class="link "><a
+												href="#" target="_self">
+													Order Status </a></li>
+											<li class="link "><a
+												href="#" target="_self">
+													Customer Support </a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="parbase languageselector section">
+									<div class="header-lang">
+										<i class="icon icon-flag header-lang__flag"></i> <a
+											href="/.html" class="js-header-lang-link header-lang__link">
+											Fran&ccedil;ais</a>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="row main-row">
+							<div class="col-md-1 main-row__logo">
+								<div class="logo parbase section">
+									<div class="header-logo">
+										<a href="#"> <img
+											src="/etc/designs/homedepot/images/hd-logo-200x200.jpg"
+											alt="Logo" class="header-logo__logo">
+										</a>
+									</div>
+								</div>
+							</div>
+							<div
+								class="col-md-1 hidden-sm hidden-md hidden-lg main-row__mobile-menu">
+								<div class="navi__item navi__item--menu-trigger"
+									data-toggle="flyout" data-target="#flyout-shop"
+									data-location="#flyouts-below" data-group="main"
+									aria-haspopup="true" aria-owns="flyout-shop">
+									<a href="#"><i class="icon icon-burger navi__icon"
+										aria-hidden="true"></i></a>
+								</div>
+							</div>
+
+							<div class="col-md-3 main-row__store">
+								<div class="header-store section">
+									<div
+										class="link header-lang--mobile hidden-sm hidden-md hidden-lg">
+										<a href="#" class="js-header-lang-link"> <i
+											class="icon icon-flag header-lang__flag"></i> <span
+											class="text header-lang__text"> Fran&ccedil;ais </span>
+										</a>
+									</div>
+									<div class="my-store-container my-store-container--header"
+										data-template="#tpl-header-store"></div>
+									<script type="text/x-handlebars-template" id="tpl-header-store">
+		<a class="header-store__pin" href="#" data-toggle="modal" data-target="#myStoreModal"><i class="icon icon-chubby-pin"></i></a>
+		<div class="store-details">
+			{{#if store}}
+			
+            <span class="store-name dropdown">
+            <a data-toggle="dropdown" data-toggle="dropdown" href="#" id="header-my-store"><span class="store-label hidden-mobile">My Store&#x3a; </span><span class="display-name">{{store.displayName}} <i class="icon icon-chevron-down"></i></span></a>
+            <ul class="dropdown-menu store-detail-dropdown" role="menu">
+				<li class="opening-time">
+					<div class="-strong">
+						Regular Store Hours
+					</div>
+
+					<ul>
+						{{#if store.openingHours.formatOpeningDayList}}
+						{{#each store.openingHours.formatOpeningDayList}}
+						<li>
+							<span class="-date">{{this.day}}</span>{{this.time}}
+						</li>
+						{{/each}}
+						{{else}}
+						{{#each store.openingHours.weekDayOpeningList}}
+						<li>
+							<span class="-date">{{this.weekDay}}</span>{{this.openingTime.formattedHour}}-{{this.closingTime.formattedHour}}
+						</li>
+						{{/each}}
+						{{/if}}
+					</ul>
+				</li>
+				{{#if store.phone}}
+				<li class="phone">
+					<div class="-number">
+						<a href="tel:{{addressPhone store.phone}}">{{addressPhone store.phone}}</a>
+					</div>
+				</li>
+				{{/if}}
+				<li>
+					<a href="/en/home/holiday-store-hours.html">Holiday Store Hours</a>
+				</li>
+				<li class="divider"></li>
+				<li><a
+						href="http://www.bing.com/maps/default.aspx?rtp=~pos.{{this.geoPoint.latitude}}_{{this.geoPoint.longitude}}_{{this.formattedAddress}}"  target="_blank">Get Directions</a></li>
+				<li class="divider"></li>
+				<li><a href="#" data-toggle="modal" data-target="#myStoreModal"
+					   id="jsHeaderStoreChange">Change Store</a></li>
+			</ul>
+                
+            <span id="auto-localization-notify"
+                data-template='<div class="popover" role="tooltip"><div class="arrow"></div><button data-action="close" type="button" class="close"><span>&times;</span></button>
+                      <div class="localization-content">
+                           <h3>Your nearest store is&#x3a;</h3>
+                           {{#if store.displayName}}<a  class="store-name" href="#">{{store.displayName}} #{{store.name}}</a>{{/if}}
+                           {{#if store.formattedAddress}}<div class="store-address">{{store.formattedAddress}}</div>{{/if}}
+                           {{#if store.phone}}<a class="store-phone" href="tel:{{addressPhone store.phone}}">{{addressPhone store.phone}}</a>{{/if}}
+                           {{#if hours}}<div class="store-hours">{{hours}}</div>{{/if}}
+                    </div>
+                    <div class="localization-failed -permission">
+                         <h3>Auto Locate has been denied permission to find your location. Please change your store manually.</h3>
+                    </div>
+                    <div class="localization-failed -other">
+                         <h3>We&#x27;re sorry, the system could not automatically locate your nearest store. Please change your store manually or try again.</h3>
+                    </div>
+                    <div class="localization-failed -timeout">
+                         <h3>We&#x27;re sorry, Auto Locate is taking too long to respond. Please change your store manually.</h3>
+                    </div>
+                    <div class="localization-options">
+                       <div class="choose-store">Change Store&#x3a;</div>
+                       <ul>
+                            <li><a href="#" data-action="change store" data-toggle="modal" data-target="#myStoreModal"><img class="logo-geo" src="/etc/designs/homedepot/clientlibs/base/images/logo.svg"/><span>Enter Location<i class="icon icon-chevron-right"></i></span></a></li>
+                            <li><a href="#" data-action="auto select" class="js-change-store-geo -disabled"><div class="spinner"></div><i class="icon icon-geo"></i><span>Auto Locate<i class="icon icon-chevron-right"></i></span></a></li>
+                        </ul> 
+                    </div>
+                </div>'
+                data-placement="bottom"
+                data-toggle="popover"
+                data-html="true"
+                data-title=" "
+                data-content=" "></span>
+            </span>
+            <time class="store-open">{{hours}}</time>
+            <a class="change-store hidden-xs hidden-sm" href="#" data-toggle="modal" data-target="#myStoreModal" id="jsHeaderStoreChange">Change Store</a>
+
+			{{else}}
+				<a class="change-store--none" href="#" data-toggle="modal" data-target="#myStoreModal" id="jsHeaderStoreChange">Select a store</a>
+			{{/if}}
+		</div>
+	</script>
+
+								</div>
+
+							</div>
+
+							<div class="main-row__divider"></div>
+
+							<div class="col-md-5 main-row__search">
+								<div class="parbase searchbar section">
+									<!-- search -->
+									<section id="flyout-search">
+
+										<div class="">
+											<!-- flyout-content -->
+											<form class="form-search"
+												action="&#x2f;en&#x2f;home&#x2f;search" method="get"
+												data-action="&#x2f;en&#x2f;home&#x2f;search.html?q={query}#!q={query}"
+												aria-haspopup="true" aria-owns="suggest-results">
+												<div class="input-group input-group-lg">
+													<div class="middle-cont">
+														<div class="input-group-btn right-cont">
+															<button id="btn-search-submit" type="submit"
+																class="btn btn-default">
+																<i class="icon icon-search"></i>
+															</button>
+														</div>
+														<div class="middle-cont">
+															<input type="text" name="q" class="form-control"
+																autocomplete="off" id="headerSearch_keywords"
+																placeholder="Search within 130,000 products">
+														</div>
+													</div>
+													<div class="loading progress">
+														<div class="progress-bar progress-bar-striped active"></div>
+													</div>
+												</div>
+											</form>
+											<div id="suggest-results" class="suggest-results"></div>
+										</div>
+									</section>
+									<!-- search  end -->
+								</div>
+							</div>
+
+							<div class="col-md-3 main-row__icons">
+								<div class="header-utilities section">
+									<ul class="link-list">
+										<li class="link my-account" data-toggle="flyout"
+											data-target="#flyout-account" data-location="#flyouts-below"
+											data-group="utility" aria-haspopup="true"
+											aria-owns="flyout-account"><a href="#"> <span
+												data-template="#tpl-user-account-greeting"></span>
+										</a> <script type="text/x-handlebars-template"
+												id="tpl-user-account-greeting">
+			{{#if isAuth}}
+                <i class="icon icon-user icon-user--active"></i>
+			    <span class="greeting hidden-xs hidden-sm">Hi {{firstName}}</span>
+            {{else}}
+                <i class="icon icon-user"></i>
+			{{/if}}
+            <span class="text hidden-xs hidden-sm">
+               My Account
+            </span>
+		</script></li>
+										<li class="link flyer hidden-md hidden-lg"><a
+											href="#"> <i
+												class="icon icon-flyer"></i> <span class="text hidden">
+													Weekly Flyer </span>
+										</a></li>
+										<li class="link cart"><a href="#"> <span
+												class="badge cart-count hidden-md hidden-lg">-</span> <i
+												class="icon icon-cart"></i> <span
+												class="text hidden-xs hidden-sm"> <span
+													class="cart-count">-</span> Cart
+											</span>
+										</a></li>
+
+										<li
+											class="link header-lang--tablet hidden-xs hidden-md hidden-lg">
+											<a href="#" class="js-header-lang-link"> <i
+												class="icon icon-flag header-lang__flag"></i> <span
+												class="text hidden-xs hidden-md header-lang__text">
+													Fran&ccedil;ais </span>
+										</a>
+										</li>
+									</ul>
+								</div>
+
+							</div>
+						</div>
+						<!-- old header -->
+
+
+					</header>
+				</div>
+			</div>
+			<!-- HTML for Main Navigation Component -->
+			<div id="flyouts-above">
+				<div class="container-fluid">
+					<div class="flyouts-container"></div>
+				</div>
+			</div>
+			<div class="navi__wrapper">
+				<div class="container-fluid">
+					<nav class="navi">
+						<ul class="navi__items">
+							<li class="navi__item  " data-toggle="flyout"
+								data-target="#flyout-shop" data-location="#flyouts-below"
+								data-group="main" aria-haspopup="true" aria-owns="flyout-shop">
+								<a href="#"> <i class="icon icon-burger navi__icon"
+									aria-hidden="true"></i> <span class="navi__item-text">
+										Shop By Department </span>
+							</a>
+							</li>
+							<li class="navi__item hidden-mobile " data-toggle="flyout"
+								data-target="#flyout-value-centre"
+								data-location="#flyouts-below" data-group="main"
+								aria-haspopup="true" aria-owns="flyout-value-centre"><a
+								href="#"> <i
+									class="icon icon-tag navi__icon" aria-hidden="true"></i> <span
+									class="navi__item-text"> Value Centre </span>
+							</a></li>
+							<li class="navi__item hidden-mobile " data-toggle="flyout"
+								data-target="#flyout-know-how" data-location="#flyouts-below"
+								data-group="main" aria-haspopup="true"
+								aria-owns="flyout-know-how"><a
+								href="#"> <i
+									class="icon icon-bulb navi__icon" aria-hidden="true"></i> <span
+									class="navi__item-text"> Ideas &amp; How-to </span>
+							</a></li>
+
+							<li class="navi__item hidden-mobile " data-toggle="flyout"
+								data-target="#flyout-services" data-location="#flyouts-below"
+								data-group="main" aria-haspopup="true"
+								aria-owns="flyout-services"><a href="#"> <i
+									class="icon icon-tools-crossed navi__icon" aria-hidden="true"></i>
+									<span class="navi__item-text"> Services </span>
+							</a></li>
+
+							<li class="navi__item  hidden-full" data-toggle="flyout"
+								data-target="#flyout-account" data-location="#flyouts-below"
+								data-group="main" aria-haspopup="true"
+								aria-owns="flyout-account"><a> <i
+									class="icon icon-user navi__icon" aria-hidden="true"></i> <span
+									class="navi__item-text"> </span>
+							</a></li>
+
+							<li class="navi__item  hidden-full" data-toggle="flyout"
+								data-target="#flyout-cart" data-location="#flyouts-below"
+								data-group="main" aria-haspopup="true" aria-owns="flyout-cart">
+								<a> <span class="badge cart-count navi__cart-count"></span>
+									<i class="icon icon-cart navi__icon" aria-hidden="true"></i> <span
+									class="navi__item-text"> </span>
+							</a>
+							</li>
+
+							<li
+								class="navi__item hidden-mobile&#x20;hidden-md&#x20;hidden-sm "
+								data-toggle="flyout" data-target="#flyout-weekly-flyer"
+								data-location="#flyouts-below" data-group="main"
+								aria-haspopup="true" aria-owns="flyout-weekly-flyer"><a
+								href="#"> <i
+									class="icon icon-flyer navi__icon" aria-hidden="true"></i> <span
+									class="navi__item-text"> Weekly Flyer </span>
+							</a></li>
+
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<div id="flyouts-below">
+				<div class="container-fluid">
+					<div class="flyouts-container"></div>
+				</div>
+			</div>
+			<div class="global-message">
+				<div class="global-message__list">
+					<div class="global-message__item">
+						<i class="icon icon-clock" aria-hidden="true"></i> BUY ONLINE PICK
+						UP IN-STORE Available for in-store products <a
+							class="global-message__cta"
+							href="#">Learn
+							More &rsaquo;</a>
+					</div>
+				</div>
+			</div>
+			<div id="flyouts">
+				<div id="flyoutsPage"
+					data-flyout-url="/content/homedepot_ca/en_ca/global/customer/flyouts.34e05b4da29a640b98d9f2caa9f97e9d"></div>
+			</div>
+			<!-- HTML for Main Navigation Component end -->
+		</div>
+	</div>
+</div>

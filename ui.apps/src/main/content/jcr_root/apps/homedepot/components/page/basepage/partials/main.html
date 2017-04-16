@@ -1,0 +1,22 @@
+<!--/*  Begin - Container for content */-->
+<div class="page-wrapper">
+	<!--/* Begin top Header */-->
+	    <sly data-sly-include="partials/header.html" data-sly-unwrap />
+	<!--/* End of Header */-->
+	<!--/* Begin Body Content */-->
+	<section class="page-body -standard -home">
+	    <div class="container-fluid">
+    	    <div class="page-body-layout">
+            	<div data-sly-resource="${ @path='title', resourceType='homedepot/components/content/title'}"></div>				
+            	<sly data-sly-resource="${ @path='par', resourceType='foundation/components/parsys'}"></sly>				
+			</div>
+		</div>
+    </section>                            
+	<!--/* End Body Content */-->
+	<!--/* Begin Global Footer */-->
+	<footer class="footer">
+		<sly data-sly-include="partials/footer.html" data-sly-unwrap />
+	</footer>
+	<!--/* End Global Footer */-->
+</div>
+<!--/* End - Container for content */-->

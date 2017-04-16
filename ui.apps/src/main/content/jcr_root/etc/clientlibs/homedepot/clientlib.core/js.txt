@@ -1,0 +1,9 @@
+#base=js
+common/jquery.min.js
+common/bootstrap.min.js
+angular/angular.min.js
+angular/angular.ng-modules.js
+//react/react.min.js
+//react/browser.min.js
+react/react.js
+react/JSXTransformer.js
