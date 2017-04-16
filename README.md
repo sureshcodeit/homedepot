@@ -26,5 +26,3 @@ Once the working copy is created, you can use the normal ``vlt up`` and ``vlt ci
 
 The CRX host and port can be specified on the command line with:
 mvn -Dcrx.host=otherhost -Dcrx.port=4502 <goals>
-
-
